@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Pulse Advisory</title>
+<meta name="description" content="Data Pulse Advisory is a Ghanaian research and advisory firm. We do data analytics, management consulting, impact analysis and public opinion research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1F1E;
+    --text:#3A4240;
+    --muted:#6B7471;
+    --rule:#DCE0DE;
+    --teal:#0F4C5C;
+    --teal-ink:#E6EFF0;
+    --paper:#FFFFFF;
+    --mist:#EEF3F3;
+    --gold:#D29B2E;
+    --serif:"Newsreader", Georgia, "Times New Roman", serif;
+    --sans:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box;min-width:0}
+  html{scroll-padding-top:20px}
+  body{margin:0;background:var(--paper);color:var(--text);font:17px/1.65 var(--sans);overflow-x:clip}
+  a{color:var(--teal);text-underline-offset:3px}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+  h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:500;margin:0;line-height:1.15}
+  p{margin:0 0 1em}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  .skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:9}
+
+  header{border-bottom:1px solid var(--rule)}
+  .top{display:flex;justify-content:space-between;align-items:center;min-height:84px;gap:20px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .logo svg{width:30px;height:30px;flex:none}
+  .logo b{font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:-0.01em}
+  nav ul{list-style:none;display:flex;gap:30px;margin:0;padding:0;flex-wrap:wrap}
+  nav a{color:var(--text);text-decoration:none;font-size:15.5px}
+  nav a:hover{color:var(--teal);text-decoration:underline}
+
+  .hero{background:var(--mist)}
+  .intro{padding:72px 0 64px;display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+  .intro h1{font-size:clamp(34px,4.4vw,54px);letter-spacing:-0.015em;text-wrap:balance}
+  .intro .sub{font-size:19px;margin-top:24px;max-width:52ch}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:3px;font-weight:600;font-size:16px;text-decoration:none}
+  .btn.solid{background:var(--teal);color:#fff}
+  .btn.solid:hover{background:#0B3B47}
+  .btn.line{border:1.5px solid var(--teal);color:var(--teal)}
+  .btn.line:hover{background:#fff}
+  .map{position:relative;max-width:420px;justify-self:end;width:100%}
+  .map svg{width:100%;height:auto;overflow:visible}
+  .map .d{fill:#BFCFD1}
+  .map .c{fill:var(--teal)}
+  .map .accra{fill:var(--gold)}
+  .map .ring{fill:none;stroke:var(--teal);stroke-width:1.5;opacity:0;transform-box:fill-box;transform-origin:center;animation:ring 6s ease-out infinite}
+  @keyframes ring{0%{opacity:.7;transform:scale(1)}30%{opacity:0;transform:scale(4.5)}100%{opacity:0}}
+  .map text{font:500 13px var(--sans);fill:var(--ink)}
+  @media (prefers-reduced-motion:reduce){.map .ring{animation:none}}
+  .strip{border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(4,1fr)}
+  .strip a{padding:20px 20px 22px 0;color:var(--ink);text-decoration:none;font-family:var(--serif);font-size:20px;line-height:1.25;border-right:1px solid var(--rule);margin-right:20px}
+  .strip a:last-child{border-right:0;margin-right:0}
+  .strip a span{display:block;font:14.5px/1.45 var(--sans);color:var(--muted);margin-top:4px}
+  .strip a:hover{color:var(--teal)}
+
+  section{padding:80px 0}
+  .alt{background:#F6F7F5}
+  h2::after{content:"";display:block;width:40px;height:3px;background:var(--gold);margin-top:18px}
+  .contact h2::after{background:var(--gold)}
+  .label{font-size:15px;color:var(--muted);margin:0 0 10px}
+  h2{font-size:clamp(28px,3.2vw,38px);letter-spacing:-0.01em;max-width:24ch}
+
+  .practice{display:grid;grid-template-columns:280px 1fr;gap:56px;padding:44px 0;border-bottom:1px solid var(--rule)}
+  .practice:first-of-type{padding-top:40px}
+  .practice:last-child{border-bottom:0;padding-bottom:0}
+  .practice h3{font-size:27px}
+  .practice .body{max-width:66ch}
+  .practice ul{margin:6px 0 0;padding-left:20px}
+  .practice li{margin-bottom:4px}
+
+  .two{display:grid;grid-template-columns:280px 1fr;gap:56px}
+  .clients{columns:2;column-gap:48px;margin:0;padding:0;list-style:none}
+  .clients li{break-inside:avoid;padding:0 0 22px}
+  .clients b{display:block;color:var(--ink);font-weight:600}
+
+  .work{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;margin-top:8px}
+  .work article{padding:22px 0;border-top:1px solid var(--rule)}
+  .work article{display:flex;flex-direction:column}
+  .tag{order:-1;font-size:14px;color:var(--teal);font-weight:600;margin-bottom:6px}
+  .work h3{font-size:21px;margin-bottom:8px}
+  .work p{margin:0;font-size:16px}
+  .fine{font-size:14.5px;color:var(--muted);margin-top:18px}
+
+
+  .contact{background:var(--teal);color:var(--teal-ink);border-top:0}
+  .contact h2,.contact .label{color:#fff}
+  .contact .label{opacity:.75}
+  .contact a{color:#fff}
+  form{display:grid;gap:16px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  label{display:block;font-size:14.5px;margin-bottom:6px;color:#fff}
+  input,select,textarea{width:100%;font:inherit;font-size:16px;padding:12px 13px;border:1px solid rgba(255,255,255,.35);border-radius:3px;background:rgba(255,255,255,.06);color:#fff}
+  select option{color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:2px solid #fff;outline-offset:1px}
+  textarea{min-height:130px;resize:vertical}
+  button{justify-self:start;font:inherit;font-weight:600;font-size:16px;background:#fff;color:var(--teal);border:0;border-radius:3px;padding:13px 24px;cursor:pointer;min-height:44px}
+  button:hover{background:var(--teal-ink)}
+  .status{min-height:1.5em;margin:0;font-size:15.5px}
+  .hp{position:absolute;left:-9999px}
+
+  footer{padding:36px 0 44px;font-size:14.5px;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer p{margin:0}
+
+  @media (max-width:900px){
+    .intro{grid-template-columns:1fr;gap:40px;padding:56px 0 48px}
+    .map{justify-self:start;max-width:340px}
+    .strip{grid-template-columns:1fr 1fr}
+    .strip a:nth-child(2){border-right:0;margin-right:0}
+    .strip a{border-bottom:1px solid var(--rule)}
+    .practice,.two{grid-template-columns:1fr;gap:18px}
+    .work{grid-template-columns:1fr}
+  }
+  @media (max-width:600px){
+    .wrap{padding-left:20px;padding-right:20px}
+    .map{max-width:280px}
+    nav ul{gap:18px}
+    .clients{columns:1}
+    .strip{grid-template-columns:1fr}
+    .strip a{border-right:0;margin-right:0}
+    .row{grid-template-columns:1fr}
+    section{padding:56px 0}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap top">
+    <a class="logo" href="#main">
+      <svg viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="3" fill="#0F4C5C"/><path d="M5 17h5l2.5-7 4 12 3-8 1.5 3H25" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <b>Data Pulse Advisory</b>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="hero">
+    <div class="wrap intro">
+      <div>
+        <h1>We help organisations in Ghana understand their data, measure their impact and hear from the people they serve.</h1>
+        <p class="sub">Data Pulse Advisory is a Ghanaian research and advisory firm. We work with government, development partners, businesses and non-profits on questions where the evidence matters.</p>
+        <div class="cta">
+          <a class="btn solid" href="#contact">Discuss a project</a>
+          <a class="btn line" href="#services">Our services</a>
+        </div>
+      </div>
+      <div class="map"><svg id="gh" viewBox="0 0 470 680" role="img" aria-label="Dot map of Ghana with regional centres highlighted"></svg></div>
+    </div>
+    <div class="wrap">
+      <nav class="strip" aria-label="Services">
+        <a href="#analytics">Data analytics<span>Dashboards, models and reporting</span></a>
+        <a href="#consulting">Management consulting<span>Strategy, structure and reform</span></a>
+        <a href="#impact">Impact analysis<span>Evaluation and value for money</span></a>
+        <a href="#opinion">Public opinion research<span>Surveys, polls and focus groups</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>What we do</h2>
+
+      <div class="practice" id="analytics">
+        <h3>Data analytics</h3>
+        <div class="body">
+          <p>Most organisations already hold the data they need. The problem is that it sits in different systems, in different formats, and nobody has time to pull it together. We clean and link it, build the analysis and set up reporting your team can run without us.</p>
+          <ul>
+            <li>Dashboards and routine performance reports</li>
+            <li>Statistical modelling and forecasting</li>
+            <li>Machine learning and text analysis</li>
+            <li>Data pipelines and quality checks</li>
+            <li>Training for staff who work with data</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="practice" id="consulting">
+        <h3>Management consulting</h3>
+        <div class="body">
+          <p>We advise leadership teams on strategy, structure and delivery. That includes reviewing how an organisation works today, preparing business cases for new investments, and supporting the planning and management of reforms.</p>
+          <ul>
+            <li>Strategic and business planning</li>
+            <li>Organisational and process reviews</li>
+            <li>Policy and regulatory analysis</li>
+            <li>Business cases and feasibility studies</li>
+            <li>Project and programme management support</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="practice" id="impact">
+        <h3>Impact analysis</h3>
+        <div class="body">
+          <p>We assess whether policies, programmes and investments achieve what they set out to do, and at what cost. We also estimate likely effects before a decision is made, so that households, businesses and the budget are considered up front.</p>
+          <ul>
+            <li>Programme and policy evaluation</li>
+            <li>Ex-ante impact and fiscal cost estimates</li>
+            <li>Cost-benefit and value-for-money analysis</li>
+            <li>Social return on investment (SROI)</li>
+            <li>Performance measurement frameworks</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="practice" id="opinion">
+        <h3>Public opinion research</h3>
+        <div class="body">
+          <p>We design and run surveys and qualitative studies to find out what citizens, customers and stakeholders think. We pay close attention to sampling and question wording, because that is where most surveys go wrong.</p>
+          <ul>
+            <li>Household, telephone and online surveys</li>
+            <li>Opinion polling and perception tracking</li>
+            <li>Customer and citizen satisfaction studies</li>
+            <li>Focus groups and key informant interviews</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="clients" class="alt">
+    <div class="wrap two">
+      <div>
+        <h2>Who we work with</h2>
+      </div>
+      <ul class="clients">
+        <li><b>Ministries, departments and agencies</b>Policy analysis, evaluation and performance reporting.</li>
+        <li><b>Metropolitan, municipal and district assemblies</b>Service delivery data, revenue analysis and citizen feedback.</li>
+        <li><b>State-owned enterprises and regulators</b>Financial and operational performance, sector studies.</li>
+        <li><b>Development partners</b>Baseline, mid-term and final evaluations, and monitoring frameworks.</li>
+        <li><b>NGOs and foundations</b>Impact measurement and reporting to funders.</li>
+        <li><b>Private sector</b>Market and customer research, and economic impact studies.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2>Examples of studies we take on</h2>
+      <div class="work">
+        <article>
+          <span class="tag">Impact analysis</span>
+          <h3>Fiscal cost of a domestic gold purchase programme</h3>
+          <p>Estimating what the programme costs the public, its effect on foreign exchange, and how the gains are shared along the value chain.</p>
+        </article>
+        <article>
+          <span class="tag">Impact analysis</span>
+          <h3>Household effects of a tax or price change</h3>
+          <p>A microsimulation model showing the impact on households by income group and region before the measure takes effect.</p>
+        </article>
+        <article>
+          <span class="tag">Data analytics</span>
+          <h3>Performance framework for a public agency</h3>
+          <p>Defining indicators, setting targets and building a dashboard for quarterly reporting to management and the board.</p>
+        </article>
+        <article>
+          <span class="tag">Public opinion research</span>
+          <h3>Citizen satisfaction survey</h3>
+          <p>A representative survey on use of and trust in a public service, with results by region and a follow-up round a year later.</p>
+        </article>
+      </div>
+      <p class="fine">These describe the kind of work we do. Client case studies will be added as engagements are completed.</p>
+    </div>
+  </section>
+
+
+  <section id="contact" class="contact">
+    <div class="wrap two">
+      <div>
+        <h2>Get in touch</h2>
+        <p style="margin-top:18px">Tell us briefly what you are working on. We usually reply within two working days.</p>
+        <p>Email: <a href="mailto:hello@datapulseadvisory.com">hello@datapulseadvisory.com</a></p>
+      </div>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company-website" id="contact-form">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hp"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+        <div class="row">
+          <div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+          <div><label for="org">Organisation</label><input id="org" name="organisation" autocomplete="organization"></div>
+        </div>
+        <div class="row">
+          <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div>
+            <label for="service">Service</label>
+            <select id="service" name="service">
+              <option>Not sure yet</option>
+              <option>Data analytics</option>
+              <option>Management consulting</option>
+              <option>Impact analysis</option>
+              <option>Public opinion research</option>
+            </select>
+          </div>
+        </div>
+        <div><label for="msg">Message</label><textarea id="msg" name="message" required></textarea></div>
+        <button type="submit">Send</button>
+        <p class="status" id="status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; <span id="yr">2026</span> Data Pulse Advisory. Registered in Ghana.</p>
+    <p><a href="mailto:hello@datapulseadvisory.com">hello@datapulseadvisory.com</a></p>
+  </div>
+</footer>
+
+<script>
+{
+  const svg=document.getElementById('gh'), K=100, X=v=>(v+3.35)*K, Y=v=>(11.25-v)*K;
+  const border=[[-2.83,11.0],[-1.1,11.1],[0.0,11.0],[0.5,10.95],[0.37,10.3],[0.25,9.5],[0.5,8.8],[0.63,8.0],[0.55,7.4],[0.65,6.9],[0.9,6.6],[1.2,6.1],[1.0,5.9],[0.5,5.75],[-0.2,5.5],[-1.0,5.1],[-1.6,5.0],[-2.0,4.75],[-2.6,4.95],[-3.1,5.1],[-3.25,5.9],[-3.0,6.3],[-3.2,6.9],[-2.9,7.5],[-2.75,8.2],[-2.6,8.6],[-2.75,9.2],[-2.7,9.6],[-2.9,10.3],[-2.8,10.7]].map(([a,b])=>[X(a),Y(b)]);
+  const inside=(x,y)=>{let c=false;for(let i=0,j=border.length-1;i<border.length;j=i++){const[xi,yi]=border[i],[xj,yj]=border[j];if((yi>y)!=(yj>y)&&x<(xj-xi)*(y-yi)/(yj-yi)+xi)c=!c}return c};
+  let out='';const g=17;
+  for(let y=g/2;y<680;y+=g)for(let x=g/2;x<470;x+=g)if(inside(x,y))out+=`<circle class="d" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.4"/>`;
+  const cities=[['Accra',-0.19,5.6,1],['Kumasi',-1.62,6.69,1],['Tamale',-0.84,9.4,1],['Takoradi',-1.76,4.93],['Cape Coast',-1.25,5.11],['Ho',0.47,6.6],['Koforidua',-0.26,6.09],['Sunyani',-2.33,7.34],['Bolgatanga',-0.85,10.79],['Wa',-2.5,10.06]];
+  cities.forEach(([n,lo,la,lab],i)=>{const x=X(lo),y=Y(la);
+    out+=`<circle class="ring" cx="${x}" cy="${y}" r="6" style="animation-delay:${(i*0.55).toFixed(2)}s"/><circle class="${n==='Accra'?'accra':'c'}" cx="${x}" cy="${y}" r="6"/>`;
+    if(lab)out+=`<text x="${x+12}" y="${y+4}">${n}</text>`;});
+  svg.innerHTML=out;
+}
+
+{
+  const f=document.getElementById('contact-form'), s=document.getElementById('status');
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const live=/(datapulseadvisory\.com|netlify\.app)$/.test(location.hostname);
+    if(!live){ s.textContent='The form will work once the site is live on datapulseadvisory.com.'; return; }
+    s.textContent='Sending...';
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+      .then(r=>{ if(!r.ok) throw 0; f.reset(); s.textContent='Thanks, your message has been sent.'; })
+      .catch(()=>{ s.textContent='Something went wrong. Please email hello@datapulseadvisory.com instead.'; });
+  });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+}
+</script>
+</body>
+</html>
